@@ -29,12 +29,24 @@ const generateFloors = (count) => {
   floorContainer.innerHTML=html;
 }
 
+const generateLifts = (count) => {
+  let html = '';
+  for(let i=1; i<=count; i++){
+    html+=`<div class="lift" id="lift${i}">
+              <div class='l-gate'></div>
+              <div class='r-gate'></div>
+            </div>`
+  }
+  liftsContainer.innerHTML=html;
+}
+
 if(!lifts && !floors){
   rendered.classList.add('hide');
   form.classList.remove('hide');
 } else {
   form.classList.add('hide');
   rendered.classList.remove('hide');
-  generateFloors(floors)
+  generateFloors(floors);
+  generateLifts(lifts);
 }
 
